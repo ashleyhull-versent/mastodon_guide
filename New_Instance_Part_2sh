@@ -20,3 +20,4 @@ cp .env.production.sample .env.production
 echo "build images"
 ##############################################################
 docker-compose build
+#Note: this takes a long time.
