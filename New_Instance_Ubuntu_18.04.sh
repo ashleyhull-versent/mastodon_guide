@@ -11,7 +11,7 @@ echo "Create mastodon user/group"
 ##############################################################
 sudo addgroup -gid 991 mastodon
 sudo adduser --quiet --disabled-password --gid 991 --uid 991 mastodon
-usermod -aG sudo mastodon
+sudo usermod -aG sudo mastodon
 echo "mastodon:changeme" | sudo chpasswd
 
 ##############################################################
