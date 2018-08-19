@@ -1,0 +1,13 @@
+echo "su into mastodon account"
+su - mastodon
+
+
+echo 'Confirm uid=991(mastodon) gid=991(mastodon) groups=991(mastodon),27(sudo),999(docker) or similar'
+id
+
+echo "clone mastodon from git"
+cd /home/mastodon
+git clone https://github.com/tootsuite/mastodon.git
+cd mastodon
+cp .env.production.sample .env.production
+
