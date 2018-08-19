@@ -21,3 +21,13 @@ echo "build images"
 ##############################################################
 docker-compose build
 #Note: this takes a long time.
+
+##############################################################
+echo "setup mastodon"
+##############################################################
+docker-compose run --rm web bundle exec rake mastodon:setup
+
+##############################################################
+echo "Start mastodon service - Three docker containers"
+##############################################################
+docker-compose up -d
