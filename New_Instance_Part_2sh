@@ -11,10 +11,20 @@ id
 ##############################################################
 echo "clone mastodon from git"
 ##############################################################
-cd /home/mastodon
-git clone https://github.com/tootsuite/mastodon.git
-cd mastodon
+# Return to mastodon user's home directory
+cd ~
+# Clone the mastodon git repository into ~/live
+git clone https://github.com/tootsuite/mastodon.git live
+# Change directory to ~/live
+cd ~/live
+# Checkout to the latest stable branch
+git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
+
+##############################################################
+echo "Prepare .env.production"
+##############################################################
 cp .env.production.sample .env.production
+
 
 ##############################################################
 echo "build images"
