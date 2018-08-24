@@ -10,7 +10,7 @@ sudo ln -s /etc/nginx/sites-available/mastodon /etc/nginx/sites-enabled/mastodon
 ##############################################################
 echo "Configure nginx"
 ##############################################################
-cat > /tmp/telegraf.conf << EOF
+cat > /etc/nginx/sites-available/mastodon << EOF
 map $http_upgrade $connection_upgrade {
   default upgrade;
   ''      close;
