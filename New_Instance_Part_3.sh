@@ -19,7 +19,7 @@ map $http_upgrade $connection_upgrade {
 server {
   listen 80;
   listen [::]:80;
-  server_name ${Domain};
+  server_name example.com;
   root /home/mastodon/live/public;
   # Useful for Let's Encrypt
   location /.well-known/acme-challenge/ { allow all; }
@@ -29,15 +29,15 @@ server {
 server {
   listen 443 ssl http2;
   listen [::]:443 ssl http2;
-  server_name ${Domain};
+  server_name example.com;
 
   ssl_protocols TLSv1.2;
   ssl_ciphers HIGH:!MEDIUM:!LOW:!aNULL:!NULL:!SHA;
   ssl_prefer_server_ciphers on;
   ssl_session_cache shared:SSL:10m;
 
-  ssl_certificate     /etc/letsencrypt/live/${Domain}/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/${Domain}/privkey.pem;
+  ssl_certificate     /etc/letsencrypt/live/example.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
 
   keepalive_timeout    70;
   sendfile             on;
